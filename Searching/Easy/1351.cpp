@@ -44,3 +44,28 @@ public:
        return 0;
 }
 };
+
+
+// 2nd Approach
+
+class Solution {
+public:
+    int countNegatives(vector<vector<int>>& grid) {
+        int n = grid.size(), r = 0, c = grid[0].size() - 1, count = 0;
+        
+        while(r < n && c >= 0)
+        {
+            if(grid[r][c] < 0)
+            {
+                count += n - r;
+                c--;
+            }
+            else
+            {
+                r++;
+            }
+        }
+        
+        return count;
+    }
+};
